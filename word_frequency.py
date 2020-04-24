@@ -1,7 +1,3 @@
-import os
-from bs4 import BeautifulSoup as bs
-import textract
-import urllib
 from collections import Counter
 import heapq
 import nltk
