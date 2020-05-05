@@ -10,47 +10,8 @@
   		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-  		<style type="text/css">
-    body{
-    margin-top:0px;
-    background: #d8d8d8;;
-      }
-      button{
-        height: 34px;
-      }
-      .hide{display:none;}
-
-		div.container{
-		  padding: 20px;
-		  margin: auto;
-		}
-		
-
-		* {
-		  box-sizing: border-box;
-		}
-
-		.responsive {
-		  padding: 10px;
-		  float: left;
-		  width: 24%;
-		}
-
-		@media only screen and (max-width: 700px) {
-		  .responsive {
-		    width: 49.99999%;
-		    margin: 6px 0;
-		  }
-		}
-
-		@media only screen and (max-width: 500px) {
-		  .responsive {
-		    width: 100%;
-
-		  }
-		}
-  </style>
+  		<style type="text/css"></style>
+  		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style_base.css') }}">
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse">
