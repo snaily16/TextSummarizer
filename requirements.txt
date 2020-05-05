@@ -11,5 +11,5 @@ nltk==3.3
 numpy==1.15.0
 requests==2.19.1
 textract==1.6.3
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 WTForms==2.2.1
