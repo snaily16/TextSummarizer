@@ -1,0 +1,15 @@
+beautifulsoup4==4.8.0
+click==6.7
+Flask==1.0.2
+Flask-WTF==0.14.3
+gunicorn==20.0.4
+itsdangerous==0.24
+Jinja2==2.10
+lxml==4.2.1
+MarkupSafe==1.0
+nltk==3.3
+numpy==1.15.0
+requests==2.19.1
+textract==1.6.3
+Werkzeug==0.14.1
+WTForms==2.2.1
