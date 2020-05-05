@@ -3,32 +3,31 @@ body{
     background: #d8d8d8;
 
 
-		div.container{
-		  padding: 20px;
-		  margin: auto;
-		}
+	div.container{
+		padding: 20px;
+		margin: auto;
+	}
 		
 
-		* {
-		  box-sizing: border-box;
-		}
+	* {
+		box-sizing: border-box;
+	}
 
+	.responsive {
+		padding: 10px;
+		float: left;
+		width: 24%;
+	}
+
+	@media only screen and (max-width: 700px) {
 		.responsive {
-		  padding: 10px;
-		  float: left;
-		  width: 24%;
+		width: 49.99999%;
+		margin: 6px 0;
 		}
+	}
 
-		@media only screen and (max-width: 700px) {
-		  .responsive {
-		    width: 49.99999%;
-		    margin: 6px 0;
-		  }
-		}
-
-		@media only screen and (max-width: 500px) {
-		  .responsive {
-		    width: 100%;
-
-		  }
+	@media only screen and (max-width: 500px) {
+		.responsive {
+		width: 100%;
+	}
 }

@@ -13,6 +13,10 @@
 					
 					{{form.files.label}}
 					{{form.files}}
+					{% for error in form.files.errors %}
+					<span style="color:red;">[{{error}}]</span><br>
+					{% endfor %}
+
 					{{form.sentences.label}}
 					{{form.sentences(class_="form-control")}}
 					{% for error in form.sentences.errors %}
@@ -30,9 +34,8 @@
 					 <h2>{{results[0]}}</h2>
 					 <hr>
 					<h3>{{results[1]}}</h4>
-				<div>
-
 					{% endif %}
-        	</div>
+        		</div>
+		</div>
 	</div>
 {% endblock %}
