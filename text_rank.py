@@ -109,4 +109,4 @@ class TextRank:
 		text = self.clean_text()
 		summary, title = self.generate_summary(text)
 		#print(summary)
-		return title, summary
+		return text, title, summary
