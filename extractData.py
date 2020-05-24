@@ -7,7 +7,7 @@ import re
 def url_extract(url):
 	page = requests.get(url)
 	data = page.text
-	soup = bs(data)
+	soup = bs(data,'html.parser')
 	text = soup.title.text + " "
 	parah = soup.find_all('p')
 	for p in parah:

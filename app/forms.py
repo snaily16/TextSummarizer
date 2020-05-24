@@ -21,3 +21,6 @@ class PdfForm(FlaskForm):
 	files = FileField('File', validators=[FileRequired(), FileAllowed(['pdf'], 'PDFs only!')])
 	sentences = IntegerField('Number of sentences', validators=[DataRequired()])
 	submit = SubmitField('Submit')
+
+class DownloadForm(FlaskForm):
+	download = SubmitField('Download')
