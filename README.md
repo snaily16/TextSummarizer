@@ -5,8 +5,7 @@
 2. Text Rank Algorithm
 
 ### Required Packages
-* NLTK
-* Numpy
-* Flask and Flask_wtforms
-* BeautifulSoup - extract text from URLs
-* textract - extract text from PDF files
+* pip install -r requirements.txt
+
+### Steps to run project
+* flask run
