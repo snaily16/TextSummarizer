@@ -1,4 +1,4 @@
-from flask import render_template,flash, redirect, send_from_directory
+from flask import render_template, flash, redirect, send_from_directory, request
 from app import app
 from app.forms import TextForm, UrlForm, PdfForm, DownloadForm
 from word_frequency import WordFrequency
@@ -46,10 +46,18 @@ def pdf():
 	if form.validate_on_submit():
 		algo = form.algo.data
 		num = form.sentences.data
-		filename = secure_filename(form.files.data.filename)
-		form.files.data.save('uploads/'+filename)
+
+		files_filename=[]
+		for file in form.files.data:
+			filename = secure_filename(file.filename)
+			file.save('uploads/'+filename)
+			files_filename.append(filename)
+
+		#print(files_filename)
+		#filename = secure_filename(form.files.data.filename)
+		#form.files.data.save('uploads/'+filename)
 		
-		text = pdf_extract('uploads/'+filename)
+		text = pdf_extract(files_filename)
 		result = select_algorithm(algo, text, num)
 
 		return render_template('pdf_input.html', title='PDF', 

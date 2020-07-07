@@ -1,8 +1,10 @@
 from flask_wtf import FlaskForm
 from wtforms import SubmitField, TextAreaField, FileField, SelectField, IntegerField
 from wtforms.fields.html5 import URLField
-from wtforms.validators import DataRequired, url
+from wtforms.fields import MultipleFileField
+from wtforms.validators import DataRequired, url, InputRequired
 from flask_wtf.file import FileRequired, FileAllowed
+from app.validators import MultiFileAllowed
 
 class TextForm(FlaskForm):
 	algo = SelectField('Choose Algorithm', choices=[('Wordfreq','Word Frequency'), ('TextRank','Text Rank')])
@@ -18,7 +20,7 @@ class UrlForm(FlaskForm):
 
 class PdfForm(FlaskForm):
 	algo = SelectField('Choose Algorithm', choices=[('Wordfreq','Word Frequency'), ('TextRank','Text Rank')])
-	files = FileField('File', validators=[FileRequired(), FileAllowed(['pdf'], 'PDFs only!')])
+	files = MultipleFileField('File(s)', validators=[InputRequired() ,MultiFileAllowed(['pdf'], 'PDFs only!')])
 	sentences = IntegerField('Number of sentences', validators=[DataRequired()])
 	submit = SubmitField('Submit')
 
