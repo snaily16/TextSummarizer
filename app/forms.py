@@ -20,7 +20,7 @@ class UrlForm(FlaskForm):
 
 class FileForm(FlaskForm):
 	algo = SelectField('Choose Algorithm', choices=[('Wordfreq','Word Frequency'), ('TextRank','Text Rank')])
-	files = MultipleFileField('File(s)', validators=[InputRequired() ,MultiFileAllowed(['pdf', 'doc'])])
+	files = MultipleFileField('File(s)', validators=[InputRequired() ,MultiFileAllowed(['pdf', 'doc', 'txt', 'epub'])])
 	sentences = IntegerField('Number of sentences', validators=[DataRequired()])
 	submit = SubmitField('Submit')
 
