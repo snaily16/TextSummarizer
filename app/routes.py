@@ -1,9 +1,9 @@
 from flask import render_template, flash, redirect, send_from_directory, request
 from app import app
-from app.forms import TextForm, UrlForm, PdfForm, DownloadForm
+from app.forms import TextForm, UrlForm, FileForm, DownloadForm
 from word_frequency import WordFrequency
 from text_rank import TextRank
-from extractData import url_extract, pdf_extract
+from extractData import url_extract, file_extract
 from werkzeug import secure_filename
 
 @app.route('/')
@@ -39,9 +39,9 @@ def url():
 
 	return render_template('url_input.html', title='URL', form=form)
 
-@app.route('/pdf', methods=['GET', 'POST'])
-def pdf():
-	form = PdfForm()
+@app.route('/files', methods=['GET', 'POST'])
+def files():
+	form = FileForm()
 	dform = DownloadForm()
 	if form.validate_on_submit():
 		algo = form.algo.data
@@ -53,16 +53,16 @@ def pdf():
 			file.save('uploads/'+filename)
 			files_filename.append(filename)
 
-		#print(files_filename)
+		print(files_filename)
 		#filename = secure_filename(form.files.data.filename)
 		#form.files.data.save('uploads/'+filename)
 		
-		text = pdf_extract(files_filename)
+		text = file_extract(files_filename)
 		result = select_algorithm(algo, text, num)
 
-		return render_template('pdf_input.html', title='PDF', 
+		return render_template('files_input.html', title='FILES', 
 			results = result, form=form, dform=dform)
-	return render_template('pdf_input.html', title='PDF', form=form)
+	return render_template('files_input.html', title='FILES', form=form)
 
 def select_algorithm(algo, text, num):
 	if algo == 'Wordfreq':

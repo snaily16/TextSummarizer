@@ -15,9 +15,9 @@ def url_extract(url):
 
 	return text
 
-def pdf_extract(filenames):
+def file_extract(filenames):
 	text = ''
 	for file in filenames:
-		extracted_text=textract.process('uploads/'+file, method='pdfminer')
+		extracted_text=textract.process('uploads/'+file)
 		text += extracted_text.decode('utf-8')
 	return text

@@ -18,9 +18,9 @@ class UrlForm(FlaskForm):
 	sentences = IntegerField('Number of sentences', validators=[DataRequired()])
 	submit = SubmitField('Submit')
 
-class PdfForm(FlaskForm):
+class FileForm(FlaskForm):
 	algo = SelectField('Choose Algorithm', choices=[('Wordfreq','Word Frequency'), ('TextRank','Text Rank')])
-	files = MultipleFileField('File(s)', validators=[InputRequired() ,MultiFileAllowed(['pdf'], 'PDFs only!')])
+	files = MultipleFileField('File(s)', validators=[InputRequired() ,MultiFileAllowed(['pdf', 'doc'])])
 	sentences = IntegerField('Number of sentences', validators=[DataRequired()])
 	submit = SubmitField('Submit')
 
