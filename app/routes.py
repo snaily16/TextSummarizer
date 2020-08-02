@@ -5,6 +5,7 @@ from word_frequency import WordFrequency
 from text_rank import TextRank
 from extractData import url_extract, file_extract
 from werkzeug import secure_filename
+import os
 
 @app.route('/')
 @app.route('/text', methods=['GET', 'POST'])
@@ -47,6 +48,9 @@ def files():
 		algo = form.algo.data
 		num = form.sentences.data
 
+		if not os.path.isdir('uploads/'):
+			os.makedirs('uploads/')
+			
 		files_filename=[]
 		for file in form.files.data:
 			filename = secure_filename(file.filename)
