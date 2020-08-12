@@ -3,6 +3,7 @@ from app import app
 from app.forms import TextForm, UrlForm, FileForm, DownloadForm
 from word_frequency import WordFrequency
 from text_rank import TextRank
+from tf_idf import TF_IDF
 from extractData import url_extract, file_extract
 from werkzeug import secure_filename
 import os
@@ -73,6 +74,8 @@ def select_algorithm(algo, text, num):
 		obj = WordFrequency(text,num)
 	elif algo == 'TextRank':
 		obj = TextRank(text,num)
+	elif algo == 'TF_IDF':
+		obj = TF_IDF(text,num)
 	return obj.summarize_text()
 
 #def download_file():

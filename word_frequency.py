@@ -8,7 +8,6 @@ class WordFrequency:
 	def  __init__(self, text, num):
 		self.text = text
 		self.num = int(num)
-		self.ALLOWED_EXTENSIONS = {'pdf', 'txt', 'doc'}
 		self.stopwords = nltk.corpus.stopwords.words('english')
 
 	def word_sent_tokenizer(self,text):
